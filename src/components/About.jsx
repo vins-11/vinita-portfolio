@@ -9,7 +9,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-32 relative px-6 pl-24 md:pl-32">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-6xl"> 
         {/* Belief Statement */}
         <motion.div
           ref={ref}
