@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaBars, FaTimes } from 'react-icons/fa'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
-      
+
       const sections = ['home', 'about', 'skills', 'experience', 'education', 'projects', 'contact']
       const current = sections.find(section => {
         const element = document.getElementById(section)
@@ -37,7 +38,16 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      const offset = 90;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   }
 
@@ -45,9 +55,8 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/50 backdrop-blur-md border-b border-gray-800' : ''
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-lg border-b border-gray-800' : ''
+        }`}
     >
       <div className="container mx-auto px-6 py-6 flex items-center justify-between">
         <motion.div
@@ -65,11 +74,10 @@ const Navbar = () => {
               onClick={() => scrollToSection(item.id)}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-3 py-2 text-sm font-medium transition-colors ${
-                activeSection === item.id
-                  ? 'text-indigo-400'
-                  : 'text-gray-400 hover:text-white'
-              }`}
+              className={`relative px-3 py-2 text-sm font-medium transition-colors ${activeSection === item.id
+                ? 'text-indigo-400'
+                : 'text-gray-400 hover:text-white'
+                }`}
             >
               {item.name}
               {activeSection === item.id && (
@@ -84,7 +92,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           <motion.a
             href="/resume.pdf"
             download="Vinita_Suthar_Resume.pdf"
@@ -125,7 +133,56 @@ const Navbar = () => {
             <FaEnvelope size={18} />
           </motion.a>
         </div>
+
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+        </div>
       </div>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-black/95 border-b border-gray-800 overflow-hidden"
+          >
+            <div className="px-6 py-4 flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    setTimeout(() => {
+                      scrollToSection(item.id)
+                    }, 300)
+                  }}
+                  className={`text-left text-lg font-medium py-2 ${activeSection === item.id ? 'text-indigo-400' : 'text-gray-400'
+                    }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+              <div className="pt-4 pb-2 border-t border-gray-800 flex items-center space-x-6">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400">
+                  <FaGithub size={20} />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400">
+                  <FaLinkedin size={20} />
+                </a>
+                <a href="mailto:vinitasuthar1199@gmail.com" className="text-gray-400 hover:text-indigo-400">
+                  <FaEnvelope size={20} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }

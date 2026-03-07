@@ -2,16 +2,27 @@ import { motion } from 'framer-motion'
 import { FaDownload, FaArrowDown } from 'react-icons/fa'
 
 const Hero = () => {
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 90;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   }
 
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const scrollToContact = () => scrollToSection('contact');
+  const scrollToAbout = () => scrollToSection('about');
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pl-24 md:pl-32">
+    <section id="home" className="min-h-[100dvh] flex flex-col justify-center relative overflow-hidden px-6 md:pl-32 pt-28 pb-10 md:pt-0 md:pb-0">
       {/* Animated background gradient */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" />
@@ -41,7 +52,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-none"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-none"
           >
             <span className="block">SENIOR</span>
             <span className="block gradient-text">SOFTWARE</span>
@@ -65,13 +76,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap items-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mb-16"
           >
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 rounded-lg transition-all shadow-lg shadow-indigo-500/50"
+              className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 rounded-lg transition-all shadow-lg shadow-indigo-500/50 text-center"
             >
               Hire Me
             </motion.button>
@@ -80,7 +91,7 @@ const Hero = () => {
               download="Vinita_Suthar_Resume.pdf"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 text-lg font-semibold text-white border-2 border-gray-700 hover:border-indigo-500 rounded-lg transition-all flex items-center gap-2 hover:bg-gray-900/50"
+              className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white border-2 border-gray-700 hover:border-indigo-500 rounded-lg transition-all flex items-center justify-center gap-2 hover:bg-gray-900/50 text-center"
             >
               <FaDownload />
               Download Resume
@@ -92,7 +103,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-800"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-gray-800"
           >
             <div className="group">
               <div className="text-4xl md:text-5xl font-bold text-indigo-400 mb-2 group-hover:scale-110 transition-transform inline-block">

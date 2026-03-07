@@ -67,7 +67,7 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-32 relative px-6 pl-24 md:pl-32">
+    <section id="skills" className="py-16 md:py-32 relative px-6 md:pl-32">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -75,7 +75,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">My Stack</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">My Stack</h2>
         </motion.div>
 
         <div ref={ref} className="space-y-16">

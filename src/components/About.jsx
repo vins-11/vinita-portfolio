@@ -8,15 +8,15 @@ const About = () => {
   })
 
   return (
-    <section id="about" className="py-32 relative px-6 pl-24 md:pl-32">
-      <div className="container mx-auto max-w-6xl"> 
+    <section id="about" className="py-16 md:py-32 relative px-6 md:pl-32">
+      <div className="container mx-auto max-w-6xl">
         {/* Belief Statement */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-32"
+          className="mb-16 md:mb-32"
         >
           <p className="text-3xl md:text-4xl lg:text-5xl text-gray-300 leading-relaxed max-w-4xl">
             I believe in a <span className="text-indigo-400 font-semibold">user-centered design approach</span>, ensuring that every project I work on is tailored to meet the specific needs of its users.
@@ -32,7 +32,7 @@ const About = () => {
         >
           <div>
             <h3 className="text-sm text-gray-500 uppercase tracking-wider mb-4">This is me.</h3>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               Hi, I'm <span className="gradient-text">Vinita</span>.
             </h2>
           </div>
