@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -31,7 +32,7 @@ function App() {
     const handleMouseMove = (e) => {
       const x = e.clientX
       const y = e.clientY
-      
+
       setMousePosition({ x, y })
 
       // Update main cursor with smooth easing
@@ -60,13 +61,13 @@ function App() {
     // Handle hover states on interactive elements
     const handleMouseOver = (e) => {
       const target = e.target
-      const isInteractive = target.tagName === 'A' || 
-                           target.tagName === 'BUTTON' || 
-                           target.closest('a') || 
-                           target.closest('button') ||
-                           target.closest('[role="button"]') ||
-                           target.style.cursor === 'pointer'
-      
+      const isInteractive = target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.closest('[role="button"]') ||
+        target.style.cursor === 'pointer'
+
       if (isInteractive) {
         setIsHovering(true)
         if (cursorRef.current) {
@@ -77,13 +78,13 @@ function App() {
 
     const handleMouseOut = (e) => {
       const target = e.target
-      const isInteractive = target.tagName === 'A' || 
-                           target.tagName === 'BUTTON' || 
-                           target.closest('a') || 
-                           target.closest('button') ||
-                           target.closest('[role="button"]') ||
-                           target.style.cursor === 'pointer'
-      
+      const isInteractive = target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.closest('[role="button"]') ||
+        target.style.cursor === 'pointer'
+
       if (isInteractive) {
         setIsHovering(false)
         if (cursorRef.current) {
@@ -95,7 +96,7 @@ function App() {
     window.addEventListener('mousemove', handleMouseMove)
     document.addEventListener('mouseover', handleMouseOver, true)
     document.addEventListener('mouseout', handleMouseOut, true)
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('mouseover', handleMouseOver, true)
@@ -109,7 +110,7 @@ function App() {
   }, [])
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden">
       {/* Modern Animated Cursor */}
       <div
         ref={cursorRef}
@@ -119,7 +120,8 @@ function App() {
         ref={cursorDotRef}
         className="custom-cursor-dot"
       />
-      
+
+      <Navbar />
       <Sidebar />
       <Hero />
       <About />

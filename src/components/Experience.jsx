@@ -35,7 +35,7 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="py-32 relative px-6 pl-24 md:pl-32">
+    <section id="experience" className="py-16 md:py-32 relative px-6 md:pl-32">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -43,7 +43,7 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             My <span className="gradient-text">Experience</span>
           </h2>
         </motion.div>
@@ -80,9 +80,9 @@ const Experience = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-300 leading-relaxed mb-4">{exp.description}</p>
-                  
+
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (

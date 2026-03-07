@@ -46,7 +46,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     // Check if EmailJS is configured
     if (!isEmailJSConfigured()) {
       setSubmitStatus('error')
@@ -66,7 +66,7 @@ const Contact = () => {
         message: formData.message,
         reply_to: formData.email,
       }
-    
+
       // 1️⃣ Send email to YOU (Admin Template)
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
@@ -74,7 +74,7 @@ const Contact = () => {
         templateParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       )
-    
+
       // 2️⃣ Send auto-reply to USER (Auto Reply Template)
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
@@ -82,20 +82,20 @@ const Contact = () => {
         templateParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       )
-    
+
       setIsSubmitting(false)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
-    
+
       setTimeout(() => {
         setSubmitStatus(null)
       }, 5000)
-    
+
     } catch (error) {
       console.error('EmailJS Error:', error)
       setIsSubmitting(false)
       setSubmitStatus('error')
-    
+
       if (error.text) {
         setErrorMessage(`EmailJS Error: ${error.text}`)
       } else if (error.message) {
@@ -128,7 +128,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-32 relative px-6 pl-24 md:pl-32">
+    <section id="contact" className="py-16 md:py-32 relative px-6 md:pl-32">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
@@ -137,7 +137,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl">
@@ -253,7 +253,7 @@ const Contact = () => {
             className="p-8 rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900/50 to-transparent"
           >
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">

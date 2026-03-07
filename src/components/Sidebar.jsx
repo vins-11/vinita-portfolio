@@ -5,7 +5,16 @@ const Sidebar = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      const offset = 90;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   }
 
@@ -14,7 +23,7 @@ const Sidebar = () => {
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed left-0 top-0 h-full w-20 md:w-24 flex flex-col items-center justify-between py-8 z-40 border-r border-gray-800"
+      className="fixed left-0 top-0 h-full w-20 md:w-24 hidden md:flex flex-col items-center justify-between py-8 z-40 border-r border-gray-800"
     >
       {/* Social Links */}
       <div className="flex flex-col items-center gap-6">
