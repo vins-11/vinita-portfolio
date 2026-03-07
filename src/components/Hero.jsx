@@ -52,7 +52,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-none"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-none"
           >
             <span className="block">SENIOR</span>
             <span className="block gradient-text">SOFTWARE</span>
@@ -76,13 +76,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap items-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mb-16"
           >
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 rounded-lg transition-all shadow-lg shadow-indigo-500/50"
+              className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 rounded-lg transition-all shadow-lg shadow-indigo-500/50 text-center"
             >
               Hire Me
             </motion.button>
@@ -91,7 +91,7 @@ const Hero = () => {
               download="Vinita_Suthar_Resume.pdf"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 text-lg font-semibold text-white border-2 border-gray-700 hover:border-indigo-500 rounded-lg transition-all flex items-center gap-2 hover:bg-gray-900/50"
+              className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white border-2 border-gray-700 hover:border-indigo-500 rounded-lg transition-all flex items-center justify-center gap-2 hover:bg-gray-900/50 text-center"
             >
               <FaDownload />
               Download Resume

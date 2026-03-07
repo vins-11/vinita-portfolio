@@ -137,10 +137,10 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl">
             Have a project in mind or want to collaborate? I'd love to hear from you. Send me a message and I'll respond as soon as possible.
           </p>
         </motion.div>
@@ -178,7 +178,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-4 p-6 rounded-xl border border-gray-800 hover:border-indigo-500/50 bg-gradient-to-br from-gray-900/50 to-transparent transition-all group"
+                  className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-indigo-500/50 bg-gradient-to-br from-gray-900/50 to-transparent transition-all group"
                 >
                   <div className="w-12 h-12 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all">
                     {info.icon}
@@ -250,7 +250,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="p-8 rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900/50 to-transparent"
+            className="p-4 sm:p-8 rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900/50 to-transparent"
           >
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 

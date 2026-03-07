@@ -57,7 +57,7 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group relative"
             >
-              <div className="flex flex-col md:flex-row gap-8 p-8 rounded-2xl border border-gray-800 hover:border-indigo-500/50 bg-gradient-to-br from-gray-900/50 to-transparent hover:from-gray-900/80 transition-all duration-300">
+              <div className="flex flex-col md:flex-row gap-6 sm:gap-8 p-4 sm:p-8 rounded-2xl border border-gray-800 hover:border-indigo-500/50 bg-gradient-to-br from-gray-900/50 to-transparent hover:from-gray-900/80 transition-all duration-300">
                 {/* Timeline indicator */}
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-2xl font-bold text-white shadow-lg shadow-indigo-500/50 group-hover:scale-110 transition-transform">
