@@ -28,7 +28,7 @@ const Experience = () => {
       title: 'Software Developer',
       company: 'Belair Travel and Cargo Pvt. Ltd.',
       period: 'Jan 2022 – Aug 2023',
-      location: 'Ahmedabad, Gujarat',
+      location: 'Delhi NCR',
       description: 'Developed and maintained frontend using Angular, HTML, TypeScript. Worked on Belair.co.in and Cheapticket.in (hotel & flight booking platforms). Integrated and enhanced APIs for real-time data synchronization.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS', 'JavaScript'],
     },

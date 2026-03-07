@@ -15,8 +15,8 @@ const Projects = () => {
       subtitle: 'On-Demand Pet Healthcare Platform',
       description: 'Vetripet is an on-demand pet healthcare platform built using Angular & Ionic, enabling online veterinary consultations, hospital appointments, and emergency support. It includes real-time appointment booking, emergency ambulance services, and digital pet health records for better care management. Integrated Firebase for authentication, data storage, and push notifications, and also working on backend APIs using Node.js & MongoDB.',
       technologies: ['Angular', 'Ionic', 'Firebase', 'Node.js', 'MongoDB'],
-      github: 'https://github.com',
-      demo: 'https://vetripet.com',
+      // github: 'https://github.com',
+      demo: 'https://vetripet24.com',
     },
     {
       number: '02',
@@ -24,8 +24,8 @@ const Projects = () => {
       subtitle: 'Daily-Needs Mobile App',
       description: 'GetIt is a daily-needs mobile app developed from scratch using Ionic and Angular with a focus on smooth user experience and performance. Implemented infinite scrolling, CRUD operations, and real-time data handling using Firebase. Integrated Google Maps for location services and push notifications, and used Strapi CMS for efficient content management and dynamic updates.',
       technologies: ['Ionic', 'Angular', 'Firebase', 'Strapi CMS', 'Google Maps'],
-      github: 'https://github.com',
-      demo: 'https://getit.com',
+      // github: 'https://github.com',
+      demo: 'https://play.google.com/store/apps/details?id=com.GetIt.app&hl=en_IN',
     },
     {
       number: '03',
@@ -33,8 +33,24 @@ const Projects = () => {
       subtitle: 'Web & Hybrid Applications',
       description: 'm-way.ch and cilo are web and hybrid applications developed using Angular and Ionic, designed with scalable architecture and smooth UI performance. Implemented state management using NgRx to improve maintainability and application flow. Integrated multiple APIs to fetch and display dynamic content and ensured reliability through unit testing with Jasmine and Karma, along with regular updates and maintenance.',
       technologies: ['Angular', 'Ionic', 'NgRx', 'RxJS', 'Jasmine', 'Karma'],
-      github: 'https://github.com',
+      // github: 'https://github.com',
       demo: 'https://m-way.ch',
+    },
+    {
+      number: '04',
+      title: 'Cheapticket',
+      subtitle: 'Flight & Hotel Booking Platform',
+      description: 'Cheapticket is a travel booking platform where I developed B2C flight and hotel booking modules. Integrated B2B and B2C hotel APIs for real-time inventory, availability, and pricing. Implemented advanced search functionality, booking workflows, and secure payment integration to ensure a seamless booking experience for users.',
+      technologies: ['Angular', 'TypeScript', 'REST APIs', 'HTML', 'SCSS'],
+      demo: 'https://cheapticket.in',
+    },
+    {
+      number: '05',
+      title: 'Belair',
+      subtitle: 'Travel & Cargo Service Platform',
+      description: 'Belair is a travel and cargo services platform where I designed and developed frontend modules using Angular. Implemented responsive and scalable UI using HTML, CSS, and SCSS, and worked on maintaining and enhancing platform performance, stability, and user experience.',
+      technologies: ['Angular', 'HTML', 'CSS', 'SCSS', 'JavaScript'],
+      demo: 'https://belair.co.in',
     },
   ]
 
@@ -91,7 +107,7 @@ const Projects = () => {
                       ))}
                     </div>
                     <div className="flex gap-6">
-                      <motion.a
+                      {/* <motion.a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -101,7 +117,7 @@ const Projects = () => {
                       >
                         <FaGithub />
                         <span>View Code</span>
-                      </motion.a>
+                      </motion.a> */}
                       <motion.a
                         href={project.demo}
                         target="_blank"
